@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/>
+<title>Profile &amp; Settings</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#291715",
+                      "secondary-container": "#474649",
+                      "error": "#ffb4ab",
+                      "secondary": "#c8c6c8",
+                      "inverse-primary": "#c0000a",
+                      "surface-dim": "#1f0f0d",
+                      "on-primary-container": "#5c0002",
+                      "tertiary-fixed": "#bbe9ff",
+                      "on-tertiary-fixed": "#001f29",
+                      "surface-container-high": "#392522",
+                      "surface": "#1f0f0d",
+                      "background": "#1f0f0d",
+                      "tertiary": "#68d3fc",
+                      "on-primary-fixed": "#410001",
+                      "on-surface": "#fcdbd6",
+                      "on-secondary-fixed-variant": "#474649",
+                      "on-tertiary": "#003545",
+                      "primary-container": "#ff5545",
+                      "on-tertiary-container": "#002e3c",
+                      "primary": "#ffb4aa",
+                      "on-primary-fixed-variant": "#930005",
+                      "inverse-on-surface": "#402b29",
+                      "error-container": "#93000a",
+                      "inverse-surface": "#fcdbd6",
+                      "secondary-fixed": "#e4e2e4",
+                      "surface-variant": "#44302d",
+                      "secondary-fixed-dim": "#c8c6c8",
+                      "outline-variant": "#5d3f3b",
+                      "on-secondary-fixed": "#1b1b1d",
+                      "on-surface-variant": "#e7bdb7",
+                      "outline": "#ad8883",
+                      "primary-fixed": "#ffdad5",
+                      "surface-bright": "#493431",
+                      "surface-tint": "#ffb4aa",
+                      "on-error-container": "#ffdad6",
+                      "surface-container-lowest": "#190a08",
+                      "on-primary": "#690003",
+                      "surface-container-highest": "#44302d",
+                      "primary-fixed-dim": "#ffb4aa",
+                      "tertiary-container": "#1d9cc3",
+                      "on-background": "#fcdbd6",
+                      "on-tertiary-fixed-variant": "#004d63",
+                      "on-secondary-container": "#b6b4b7",
+                      "on-secondary": "#303032",
+                      "on-error": "#690005",
+                      "tertiary-fixed-dim": "#68d3fc",
+                      "surface-container": "#2d1b18"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "gutter": "16px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "sm": "12px",
+                      "margin-desktop": "120px",
+                      "lg": "40px",
+                      "margin-mobile": "20px",
+                      "xl": "64px"
+              },
+              "fontFamily": {
+                      "data-point": ["Sora"],
+                      "body-md": ["Hanken Grotesk"],
+                      "body-lg": ["Hanken Grotesk"],
+                      "headline-display": ["Sora"],
+                      "label-caps": ["JetBrains Mono"],
+                      "headline-md": ["Sora"],
+                      "headline-lg-mobile": ["Sora"],
+                      "headline-lg": ["Sora"]
+              },
+              "fontSize": {
+                      "data-point": ["20px", {"lineHeight": "24px", "fontWeight": "600"}],
+                      "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                      "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                      "headline-display": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                      "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "headline-md": ["24px", {"lineHeight": "30px", "fontWeight": "600"}],
+                      "headline-lg-mobile": ["28px", {"lineHeight": "34px", "fontWeight": "600"}],
+                      "headline-lg": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}]
+              }
+            },
+          }
+        }
+    </script>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Custom scrollbar for webkit */
+        ::-webkit-scrollbar {
+            width: 4px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: theme('colors.surface-container-high');
+            border-radius: theme('borderRadius.full');
+        }
+
+        /* Ambient Glow effect */
+        .ambient-glow {
+            box-shadow: 0 0 32px 0 rgba(255, 85, 69, 0.15); /* primary-container with opacity */
+        }
+
+        /* Glass border effect */
+        .glass-border {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 1px solid rgba(255, 255, 255, 0.05);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="antialiased font-body-md text-body-md min-h-screen flex flex-col pb-24 md:pb-0">
+<!-- JSON Component: TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-background/80 backdrop-blur-xl md:hidden">
+<div class="flex items-center gap-sm">
+<div class="w-8 h-8 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A close-up, high-quality portrait photograph of a young, fit individual in casual workout attire, looking slightly off-camera with a confident and serene expression. The lighting is soft and cinematic, highlighting their features against a dark, moody gym background. The color palette aligns with a sophisticated wellness aesthetic, featuring deep blacks, subtle grays, and a hint of warm red ambient light. The overall mood is modern, focused, and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZdCgfxSfs1Wzs2pMSOPQMXy_PKI-OHAc_YIIf-g7ao5WD92nE1DOB3-bsVqF1vQK4DbJYUw0VEOpGtqt1tU1AdMtf7rkp4yny1DEHHFsB2ts4ib1oVb0RfKnooy8dJfLkWfIgV4gcFq6Cj944hNJjFFVv0ZNS9jMV7WUy_tgSDulD8uPGp5C4oxD4hJsQvTspvCmIN_nXZl4xLsNcpD_iQ9mwT6IjfwEL6Dn8J7x1EVB4TAvRn4FF"/>
+</div>
+<h1 class="font-headline-md text-headline-md text-primary font-bold tracking-tight">Good morning, Alex</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:bg-surface-container-high transition-colors hover:opacity-80 active:scale-95 text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">notifications</span>
+</button>
+</header>
+<!-- Desktop Nav (Hidden on Mobile) -->
+<nav class="hidden md:flex fixed top-0 left-0 w-full z-50 items-center justify-between px-margin-desktop h-20 bg-background/80 backdrop-blur-xl border-b border-white/5">
+<div class="flex items-center gap-md">
+<h1 class="font-headline-md text-headline-md text-primary font-bold">Wellness<span class="text-on-background">OS</span></h1>
+<div class="flex items-center gap-6 ml-8">
+<a class="font-label-caps text-label-caps text-secondary opacity-60 hover:opacity-100 transition-all" href="#">Home</a>
+<a class="font-label-caps text-label-caps text-secondary opacity-60 hover:opacity-100 transition-all" href="#">Workouts</a>
+<a class="font-label-caps text-label-caps text-secondary opacity-60 hover:opacity-100 transition-all" href="#">Diet</a>
+<a class="font-label-caps text-label-caps text-secondary opacity-60 hover:opacity-100 transition-all" href="#">Progress</a>
+<a class="font-label-caps text-label-caps text-primary font-bold border-b-2 border-primary pb-1" href="#">Profile</a>
+</div>
+</div>
+<div class="flex items-center gap-sm">
+<button class="w-10 h-10 flex items-center justify-center rounded-full bg-surface-container-low hover:bg-surface-container-high transition-colors">
+<span class="material-symbols-outlined text-on-surface">settings</span>
+</button>
+<div class="w-10 h-10 rounded-full overflow-hidden border border-outline-variant">
+<img class="w-full h-full object-cover" data-alt="A close-up, high-quality portrait photograph of a young, fit individual in casual workout attire, looking slightly off-camera with a confident and serene expression. The lighting is soft and cinematic, highlighting their features against a dark, moody gym background. The color palette aligns with a sophisticated wellness aesthetic, featuring deep blacks, subtle grays, and a hint of warm red ambient light. The overall mood is modern, focused, and premium." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDKPxhScIqiIo_XVJyWup7x-V_sKdeEb38uVo-xyAMa-sV1ushI4S34J9uWe4AojiWj2L3jv3v0xLbNNl9z929ihqufPJkImDEayzs4AHpbVeOP8bNut7giy0IpaDqOceMJL4RID4oEuDJbT23KLHgMQbzUm0waoGN0uK8_fhYj-5lD7GOJPcsVQAXGJhrjTfD4aKPPPvgh4IVaVNRP6h57AW6Q0oDxTuPwHQF4xeMx2I0aW8f-nWmv"/>
+</div>
+</div>
+</nav>
+<!-- Main Content Canvas -->
+<main class="flex-1 w-full max-w-7xl mx-auto px-margin-mobile md:px-margin-desktop pt-24 md:pt-32 flex flex-col gap-lg">
+<!-- Profile Header Section -->
+<section class="flex flex-col md:flex-row items-center md:items-start gap-md">
+<div class="relative w-32 h-32 md:w-40 md:h-40 rounded-full overflow-hidden border-2 border-surface-container-high ambient-glow flex-shrink-0">
+<img class="w-full h-full object-cover" data-alt="A striking portrait photograph of a focused young athlete against a deep matte black background. They are wearing premium, dark-toned athletic wear. The lighting is highly stylized, using a split lighting technique with a soft, glowing red rim light on one side and a cool, soft white fill on the other, perfectly embodying a high-end wellness fintech aesthetic. The expression is determined and calm." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA8Xlc_fY2_-jvVrE9stlNiQrdxF0_t-beQJS_sYPutuDr_9HVCV4bQnTeBX_D8xJJBmBF24U9o68xWS3fLHmPKFAjN-sQg1NnG94kca3l0JqdRadzgFAtjZcVB2eVRQa2Und-2yLG5_usXF7vzMSNbm6tcsIAO4h7Zhl94vOb52GLGbDQlUOcKFyfl6NWFsH9Y0w0-UglE5vXn1AauNgrwtQDhSFpPlJqxPhjCybzLRWnCv8daI-6e"/>
+<div class="absolute inset-0 border-[3px] border-primary rounded-full" style="clip-path: polygon(0 0, 100% 0, 100% 75%, 0 75%);"></div>
+</div>
+<div class="flex flex-col items-center md:items-start text-center md:text-left pt-sm">
+<h2 class="font-headline-display text-headline-display text-on-background">Alex Mercer</h2>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-xs">Level 24 • Urban Athlete</p>
+<div class="mt-md flex gap-sm">
+<button class="bg-primary hover:bg-primary-container text-on-primary font-body-md font-medium px-6 py-2 rounded-lg transition-colors">Edit Profile</button>
+<button class="border border-outline-variant hover:border-outline text-on-surface font-body-md font-medium px-6 py-2 rounded-lg transition-colors flex items-center gap-xs">
+<span class="material-symbols-outlined text-sm" style="font-size: 18px;">share</span>
+                        Share
+                    </button>
+</div>
+</div>
+</section>
+<!-- Bento Grid: Goals & Devices -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-md w-full">
+<!-- Goal Summary Card -->
+<div class="md:col-span-8 bg-[#1C1C1E] rounded-xl p-md glass-border flex flex-col justify-between relative overflow-hidden group">
+<!-- Abstract Background Detail -->
+<div class="absolute -right-20 -top-20 w-64 h-64 bg-primary/5 rounded-full blur-3xl group-hover:bg-primary/10 transition-colors duration-500"></div>
+<div class="flex justify-between items-start z-10">
+<div>
+<h3 class="font-label-caps text-label-caps text-on-surface-variant mb-xs">Current Focus</h3>
+<p class="font-headline-lg-mobile md:font-headline-lg text-on-background">Endurance Base Phase</p>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl">directions_run</span>
+</div>
+<div class="mt-lg z-10 flex flex-col gap-sm">
+<div class="flex justify-between items-end">
+<div>
+<span class="font-data-point text-data-point text-on-background">4</span>
+<span class="font-body-md text-on-surface-variant ml-1">/ 6 Weeks</span>
+</div>
+<span class="font-label-caps text-label-caps text-primary">66% COMPLETED</span>
+</div>
+<!-- Custom Progress Bar -->
+<div class="w-full h-2 bg-background rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full relative" style="width: 66%;">
+<div class="absolute inset-0 bg-white/20 w-full h-full animate-[shimmer_2s_infinite]" style="background-image: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Connected Devices Card -->
+<div class="md:col-span-4 bg-[#1C1C1E] rounded-xl p-md glass-border flex flex-col gap-md">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant">Connected Devices</h3>
+<div class="flex flex-col gap-sm">
+<div class="flex items-center justify-between p-sm rounded-lg bg-surface-container-low border border-transparent hover:border-outline-variant transition-colors">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-background flex items-center justify-center">
+<span class="material-symbols-outlined text-on-surface">watch</span>
+</div>
+<div>
+<p class="font-body-md text-on-background font-medium">Apple Watch</p>
+<p class="font-label-caps text-label-caps text-primary mt-1 flex items-center gap-1">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Syncing
+                                </p>
+</div>
+</div>
+</div>
+<div class="flex items-center justify-between p-sm rounded-lg bg-surface-container-low border border-transparent hover:border-outline-variant transition-colors">
+<div class="flex items-center gap-sm">
+<div class="w-10 h-10 rounded-full bg-background flex items-center justify-center opacity-50">
+<span class="material-symbols-outlined text-on-surface">watch_screentime</span>
+</div>
+<div>
+<p class="font-body-md text-on-surface-variant font-medium">Fitbit</p>
+<p class="font-label-caps text-label-caps text-on-surface-variant opacity-60 mt-1">Disconnected</p>
+</div>
+</div>
+<button class="text-primary font-label-caps text-label-caps hover:opacity-80">CONNECT</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Settings List Section -->
+<section class="bg-[#1C1C1E] rounded-xl p-0 glass-border overflow-hidden mb-lg">
+<h3 class="font-label-caps text-label-caps text-on-surface-variant px-md pt-md pb-xs">Account Settings</h3>
+<div class="flex flex-col">
+<!-- Setting Item: Dark Mode Toggle -->
+<div class="flex items-center justify-between p-md border-b border-surface-container-high hover:bg-surface-container-low transition-colors group cursor-pointer" onclick="document.getElementById('dark-mode-toggle').click()">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">dark_mode</span>
+<p class="font-body-md text-on-background">App Theme (Dark Mode)</p>
+</div>
+<!-- Custom Toggle Switch -->
+<label class="relative inline-flex items-center cursor-pointer" onclick="event.stopPropagation()">
+<input checked="" class="sr-only peer" id="dark-mode-toggle" type="checkbox" value=""/>
+<div class="w-11 h-6 bg-surface-container-high peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+</label>
+</div>
+<!-- Setting Item: Notifications -->
+<a class="flex items-center justify-between p-md border-b border-surface-container-high hover:bg-surface-container-low transition-colors group" href="#">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">notifications_active</span>
+<p class="font-body-md text-on-background">Notifications &amp; Reminders</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-50">chevron_right</span>
+</a>
+<!-- Setting Item: Privacy -->
+<a class="flex items-center justify-between p-md border-b border-surface-container-high hover:bg-surface-container-low transition-colors group" href="#">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">lock</span>
+<p class="font-body-md text-on-background">Privacy &amp; Security</p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-50">chevron_right</span>
+</a>
+<!-- Setting Item: Subscription -->
+<a class="flex items-center justify-between p-md hover:bg-surface-container-low transition-colors group" href="#">
+<div class="flex items-center gap-sm">
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-colors">workspace_premium</span>
+<p class="font-body-md text-on-background">Subscription <span class="ml-2 font-label-caps bg-surface px-2 py-1 rounded text-primary">PRO</span></p>
+</div>
+<span class="material-symbols-outlined text-on-surface-variant opacity-50">chevron_right</span>
+</a>
+</div>
+</section>
+</main>
+<!-- JSON Component: BottomNavBar (Mobile Only) -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-safe h-20 bg-surface-container-lowest/70 backdrop-blur-2xl border-t border-white/10 md:hidden">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary opacity-60 hover:opacity-100 transition-all w-16 h-full gap-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">home_app_logo</span>
+<span class="font-label-caps text-[10px]">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary opacity-60 hover:opacity-100 transition-all w-16 h-full gap-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">fitness_center</span>
+<span class="font-label-caps text-[10px]">Workouts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary opacity-60 hover:opacity-100 transition-all w-16 h-full gap-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">restaurant</span>
+<span class="font-label-caps text-[10px]">Diet</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary opacity-60 hover:opacity-100 transition-all w-16 h-full gap-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">monitoring</span>
+<span class="font-label-caps text-[10px]">Progress</span>
+</a>
+<!-- Active Tab -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary font-bold hover:opacity-100 transition-all scale-110 duration-300 ease-out w-16 h-full gap-1" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+<span class="font-label-caps text-[10px]">Profile</span>
+</a>
+</nav>
+</body></html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<title>Progress Tracking - Wellness Fintech</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-low": "#291715",
+                      "secondary-container": "#474649",
+                      "error": "#ffb4ab",
+                      "secondary": "#c8c6c8",
+                      "inverse-primary": "#c0000a",
+                      "surface-dim": "#1f0f0d",
+                      "on-primary-container": "#5c0002",
+                      "tertiary-fixed": "#bbe9ff",
+                      "on-tertiary-fixed": "#001f29",
+                      "surface-container-high": "#392522",
+                      "surface": "#1f0f0d",
+                      "background": "#1f0f0d",
+                      "tertiary": "#68d3fc",
+                      "on-primary-fixed": "#410001",
+                      "on-surface": "#fcdbd6",
+                      "on-secondary-fixed-variant": "#474649",
+                      "on-tertiary": "#003545",
+                      "primary-container": "#ff5545",
+                      "on-tertiary-container": "#002e3c",
+                      "primary": "#ffb4aa",
+                      "on-primary-fixed-variant": "#930005",
+                      "inverse-on-surface": "#402b29",
+                      "error-container": "#93000a",
+                      "inverse-surface": "#fcdbd6",
+                      "secondary-fixed": "#e4e2e4",
+                      "surface-variant": "#44302d",
+                      "secondary-fixed-dim": "#c8c6c8",
+                      "outline-variant": "#5d3f3b",
+                      "on-secondary-fixed": "#1b1b1d",
+                      "on-surface-variant": "#e7bdb7",
+                      "outline": "#ad8883",
+                      "primary-fixed": "#ffdad5",
+                      "surface-bright": "#493431",
+                      "surface-tint": "#ffb4aa",
+                      "on-error-container": "#ffdad6",
+                      "surface-container-lowest": "#190a08",
+                      "on-primary": "#690003",
+                      "surface-container-highest": "#44302d",
+                      "primary-fixed-dim": "#ffb4aa",
+                      "tertiary-container": "#1d9cc3",
+                      "on-background": "#fcdbd6",
+                      "on-tertiary-fixed-variant": "#004d63",
+                      "on-secondary-container": "#b6b4b7",
+                      "on-secondary": "#303032",
+                      "on-error": "#690005",
+                      "tertiary-fixed-dim": "#68d3fc",
+                      "surface-container": "#2d1b18"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "base": "8px",
+                      "gutter": "16px",
+                      "xs": "4px",
+                      "md": "24px",
+                      "sm": "12px",
+                      "margin-desktop": "120px",
+                      "lg": "40px",
+                      "margin-mobile": "20px",
+                      "xl": "64px",
+                      "safe": "env(safe-area-inset-bottom)"
+              },
+              "fontFamily": {
+                      "data-point": ["Sora", "sans-serif"],
+                      "body-md": ["Hanken Grotesk", "sans-serif"],
+                      "body-lg": ["Hanken Grotesk", "sans-serif"],
+                      "headline-display": ["Sora", "sans-serif"],
+                      "label-caps": ["JetBrains Mono", "monospace"],
+                      "headline-md": ["Sora", "sans-serif"],
+                      "headline-lg-mobile": ["Sora", "sans-serif"],
+                      "headline-lg": ["Sora", "sans-serif"]
+              },
+              "fontSize": {
+                      "data-point": ["20px", { "lineHeight": "24px", "fontWeight": "600" }],
+                      "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                      "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                      "headline-display": ["48px", { "lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                      "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                      "headline-md": ["24px", { "lineHeight": "30px", "fontWeight": "600" }],
+                      "headline-lg-mobile": ["28px", { "lineHeight": "34px", "fontWeight": "600" }],
+                      "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600" }]
+              }
+            },
+          }
+        }
+    </script>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500&amp;family=Sora:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body {
+            background-color: theme('colors.background');
+            color: theme('colors.on-background');
+            -webkit-font-smoothing: antialiased;
+        }
+        .glass-panel {
+            background: rgba(28, 28, 30, 0.7);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .ambient-glow {
+            box-shadow: 0 0 32px 0 rgba(255, 180, 170, 0.15);
+        }
+        /* Custom scrollbar for horizontal lists */
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen flex flex-col pb-[100px] relative font-body-md text-body-md overflow-x-hidden">
+<!-- Ambient Background Element -->
+<div class="fixed top-0 left-0 w-full h-[300px] bg-gradient-to-b from-primary/10 to-transparent pointer-events-none -z-10"></div>
+<!-- TopAppBar -->
+<header class="fixed top-0 left-0 w-full z-50 flex justify-between items-center px-margin-mobile h-16 bg-background/80 backdrop-blur-xl">
+<div class="flex items-center gap-sm">
+<img alt="User Profile" class="w-8 h-8 rounded-full object-cover border border-white/10" data-alt="A small, circular profile photo of a young adult looking active and healthy, set against a dark matte background. High contrast, clean lighting, wellness lifestyle aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCLYe5L5IgZxuQ285Oey74flvv1z-d7QamxNSVKPEumlrzMYrSpJ5OxguVQeQBgxErwfI9GUYIWzKkwTv4TB8PCHHLT0PX_R2WayevoC0gsgYLFlxtL1WRvEaavPbQ4qJ5zLoMfGszyNNWRFoKwjX3aRisuGVyjqxwck39ZbTYK7gETuzUN3S1voMpRknuQV-_b33aISV24frLyfPgRjr6N20ezfJKKT-4wfXOj4TVSzwYmRR68K2X"/>
+<h1 class="font-headline-md text-headline-md font-bold text-primary dark:text-primary">Progress</h1>
+</div>
+<button class="w-10 h-10 flex items-center justify-center rounded-full hover:opacity-80 transition-opacity text-on-surface-variant dark:text-on-surface-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">notifications</span>
+</button>
+</header>
+<!-- Main Content -->
+<main class="flex-1 px-margin-mobile pt-24 pb-safe flex flex-col gap-lg">
+<!-- Macro Overview Bento Grid -->
+<section class="grid grid-cols-2 gap-gutter">
+<!-- Current Weight Card (Ambient Glow) -->
+<div class="col-span-2 glass-panel rounded-xl p-md ambient-glow relative overflow-hidden flex flex-col justify-between h-[160px]">
+<div class="flex justify-between items-start w-full z-10">
+<span class="font-label-caps text-label-caps text-secondary uppercase tracking-widest">Weight</span>
+<div class="flex items-center gap-1 text-tertiary">
+<span class="material-symbols-outlined text-[16px]">trending_down</span>
+<span class="font-label-caps text-label-caps">-1.2 kg</span>
+</div>
+</div>
+<div class="z-10">
+<h2 class="font-headline-display text-headline-display text-on-background">76.4<span class="text-data-point text-secondary ml-1">kg</span></h2>
+<p class="font-body-md text-body-md text-secondary mt-1">Target: 75.0 kg</p>
+</div>
+<!-- Abstract progress graphic -->
+<div class="absolute bottom-0 right-0 w-3/4 h-1/2 opacity-20 pointer-events-none">
+<svg class="w-full h-full stroke-primary fill-none stroke-[2]" preserveaspectratio="none" viewbox="0 0 100 50">
+<path d="M0,40 Q20,30 40,35 T80,20 T100,5"></path>
+</svg>
+</div>
+</div>
+<!-- BMI Card -->
+<div class="glass-panel rounded-xl p-sm flex flex-col justify-between h-[120px]">
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-secondary uppercase">BMI</span>
+<span class="material-symbols-outlined text-secondary opacity-50 text-[18px]">monitor_weight</span>
+</div>
+<div>
+<div class="font-data-point text-data-point text-on-background">22.8</div>
+<div class="font-label-caps text-label-caps text-primary mt-1">Normal</div>
+</div>
+</div>
+<!-- Body Fat Card -->
+<div class="glass-panel rounded-xl p-sm flex flex-col justify-between h-[120px]">
+<div class="flex justify-between items-center">
+<span class="font-label-caps text-label-caps text-secondary uppercase">Body Fat</span>
+<span class="material-symbols-outlined text-secondary opacity-50 text-[18px]">water_drop</span>
+</div>
+<div>
+<div class="font-data-point text-data-point text-on-background">15.2<span class="text-[14px] text-secondary ml-1">%</span></div>
+<div class="font-label-caps text-label-caps text-tertiary mt-1">Down 0.4%</div>
+</div>
+</div>
+</section>
+<!-- Measurement Trends -->
+<section class="flex flex-col gap-sm">
+<h3 class="font-headline-md text-headline-md text-on-background mb-2">Measurements</h3>
+<!-- List of measurements -->
+<div class="glass-panel rounded-xl flex flex-col divide-y divide-white/5">
+<div class="flex justify-between items-center p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">straighten</span>
+</div>
+<div>
+<div class="font-body-lg text-body-lg text-on-background">Chest</div>
+<div class="font-label-caps text-label-caps text-secondary">Last updated 2d ago</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-data-point text-data-point text-on-background">102<span class="text-[14px] text-secondary ml-1">cm</span></div>
+</div>
+</div>
+<div class="flex justify-between items-center p-md">
+<div class="flex items-center gap-md">
+<div class="w-10 h-10 rounded-full bg-surface-container-high flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">straighten</span>
+</div>
+<div>
+<div class="font-body-lg text-body-lg text-on-background">Waist</div>
+<div class="font-label-caps text-label-caps text-secondary">Last updated 2d ago</div>
+</div>
+</div>
+<div class="text-right">
+<div class="font-data-point text-data-point text-on-background">84<span class="text-[14px] text-secondary ml-1">cm</span></div>
+</div>
+</div>
+</div>
+<button class="w-full py-sm border border-outline-variant text-on-surface-variant font-body-md text-body-md rounded-lg mt-2 hover:bg-surface-container-high transition-colors">
+                Log New Measurements
+            </button>
+</section>
+<!-- Achievements Horizontal Scroll -->
+<section class="flex flex-col gap-sm -mx-margin-mobile">
+<div class="px-margin-mobile">
+<h3 class="font-headline-md text-headline-md text-on-background">Achievements</h3>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar px-margin-mobile gap-md snap-x">
+<!-- Badge 1 -->
+<div class="glass-panel rounded-xl p-md min-w-[160px] snap-center flex flex-col items-center text-center gap-sm">
+<div class="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-surface-container-highest flex items-center justify-center shadow-[0_0_20px_rgba(255,180,170,0.3)]">
+<span class="material-symbols-outlined text-[32px] text-white">local_fire_department</span>
+</div>
+<div>
+<div class="font-data-point text-[16px] text-on-background leading-tight mb-1">30 Day Streak</div>
+<div class="font-label-caps text-label-caps text-secondary">Unlocked Oct 12</div>
+</div>
+</div>
+<!-- Badge 2 -->
+<div class="glass-panel rounded-xl p-md min-w-[160px] snap-center flex flex-col items-center text-center gap-sm">
+<div class="w-16 h-16 rounded-full bg-gradient-to-br from-tertiary to-surface-container-highest flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px] text-on-tertiary-fixed">fitness_center</span>
+</div>
+<div>
+<div class="font-data-point text-[16px] text-on-background leading-tight mb-1">Heavy Lifter</div>
+<div class="font-label-caps text-label-caps text-secondary">Unlocked Sep 05</div>
+</div>
+</div>
+<!-- Badge 3 (Locked) -->
+<div class="glass-panel rounded-xl p-md min-w-[160px] snap-center flex flex-col items-center text-center gap-sm opacity-50">
+<div class="w-16 h-16 rounded-full bg-surface-container-highest border border-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px] text-secondary">lock</span>
+</div>
+<div>
+<div class="font-data-point text-[16px] text-on-background leading-tight mb-1">Marathoner</div>
+<div class="font-label-caps text-label-caps text-secondary">24/42 km</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-2 pb-safe h-20 bg-surface-container-lowest/70 backdrop-blur-2xl">
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary opacity-60 hover:opacity-100 transition-all w-16" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1">home_app_logo</span>
+<span class="font-label-caps text-label-caps">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary opacity-60 hover:opacity-100 transition-all w-16" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1">fitness_center</span>
+<span class="font-label-caps text-label-caps">Workouts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary opacity-60 hover:opacity-100 transition-all w-16" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1">restaurant</span>
+<span class="font-label-caps text-label-caps">Diet</span>
+</a>
+<!-- Active State -->
+<a class="flex flex-col items-center justify-center text-primary dark:text-primary font-bold hover:opacity-100 transition-all scale-110 duration-300 ease-out w-16" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1" style="font-variation-settings: 'FILL' 1;">monitoring</span>
+<span class="font-label-caps text-label-caps">Progress</span>
+</a>
+<a class="flex flex-col items-center justify-center text-secondary dark:text-secondary opacity-60 hover:opacity-100 transition-all w-16" href="#">
+<span class="material-symbols-outlined text-[24px] mb-1">person</span>
+<span class="font-label-caps text-label-caps">Profile</span>
+</a>
+</nav>
+</body></html>
